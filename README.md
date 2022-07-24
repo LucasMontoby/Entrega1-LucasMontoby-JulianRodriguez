@@ -43,7 +43,7 @@ python manage.py sqlmigrate nombre_app nombreclave_migracion
 
 python manage.py migrate
 #Por ultimo este comando es el que se encargará de migrar completamente todo lo que hicimos anteriormente a la base de datos del proyecto. -->
-# TF-LucasMontoby-JulianRodroguez
-# TF-LucasMontoby-JulianRodriguez
+
 # Entrega1-LucasMontoby-JulianRodriguez
-# Entrega1-LucasMontoby-JulianRodriguez
+
+
