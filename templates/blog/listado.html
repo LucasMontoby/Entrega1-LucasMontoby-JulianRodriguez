@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Listado</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h1>
+    Listado
+</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <a href={% url 'crear' %}>Crear</a>
+</p>
+
+<p>
+    <form action={% url 'listado' %}>
+        {{form}}
+        <button>Buscar</button>
+    </form>
+</p>
+
+<p>
+    {% if listado %}
+    <ul>
+        {% for blog in listado %}
+        <li>{{blog}} 
+            <a href={% url 'mostrar' blog.id %}>Mostrar</a>
+            <a href={% url 'editar' blog.id %}>Editar</a>
+            <a href={% url 'eliminar' blog.id %}>Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encontraron datos.
+    {% endif %}
+</p>
+{% endblock despues_del_header %}

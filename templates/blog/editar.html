@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>editar</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h1>
+    Editar del blog
+</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <form action={% url 'editar' blog.id %} method="post">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>editar</button>
+    </form>
+</p>
+{% endblock despues_del_header %}

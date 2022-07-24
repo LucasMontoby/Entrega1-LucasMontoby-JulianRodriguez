@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Blog</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h1>
+    Blog
+</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <a href={% url 'listado_Blogs' %}>Volver</a>
+</p>
+
+<p>
+    <ul>
+        <li>
+            {{Blog.nombre}}
+        </li>
+        <li>
+            {{Blog.edad}}
+        </li>
+        <li>
+            {{Blog.fecha_creacion}}
+        </li>
+    </ul>
+</p>
+{% endblock despues_del_header %}

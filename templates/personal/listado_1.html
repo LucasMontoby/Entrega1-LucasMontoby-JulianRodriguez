@@ -1,0 +1,31 @@
+{% block texto_header %}
+<h1>
+    Listado
+</h1>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <a href={% url 'crear_1' %}>Crear</a>
+</p>
+
+<p>
+
+</p>
+    {% object_list %}
+<p>
+    {% if listado_1 %}
+    <ul>
+        {% for personal in object_list %}
+        <li>{{personal}} 
+            <a href={% url 'mostrar_1' personal.id %}>Mostrar</a>
+            <a href={% url 'editar_1' personal.id %}>Editar</a>
+            <a href={% url 'eliminar_1' personal.id %}>Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encontraron datos.
+    {% endif %}
+</p>
+{% endblock despues_del_header %}
