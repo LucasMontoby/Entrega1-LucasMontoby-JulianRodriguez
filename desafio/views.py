@@ -25,7 +25,6 @@ def crear(request):
                 nombre=data.get('nombre'),
                 edad=data.get('edad'),
                 fecha_creacion=fecha
-                #fecha_creacion=fecha if fecha else datetime.now()
             )
             blog.save()
 
