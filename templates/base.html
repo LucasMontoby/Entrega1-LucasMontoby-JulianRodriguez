@@ -30,7 +30,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href={% url 'index' %}>Index</a>
+                <a class="navbar-brand" href={% url 'base' %}>Base</a>
                 <a class="navbar-brand" href={% url 'listado' %}>Blog</a>
                 <a class="navbar-brand" href={% url 'listado_1' %}>Personal</a>
                 {% if request.user.is_authenticated %}

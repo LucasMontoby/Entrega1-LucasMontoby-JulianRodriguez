@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def una_vista(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html', {})
 
 def crear(request):
     if request.method == 'POST':
