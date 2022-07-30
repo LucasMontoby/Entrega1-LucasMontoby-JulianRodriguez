@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as django_login
 
 from accounts.models import MasDatosUsuario
 from .forms import MyUserCreationForm, MyUserEditForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, about_required
 
 
 def login(request):
@@ -90,3 +90,7 @@ def editar_perfil(request):
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/cambio_password.html'
     success_url = '/accounts/perfil/'
+    
+@about_required
+def about(request):
+    return render(request, 'accounts/about.html')
