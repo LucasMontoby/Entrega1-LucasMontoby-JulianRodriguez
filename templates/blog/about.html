@@ -10,3 +10,9 @@
     Soy Lucas Martín Montoby, soy docente y vivo en la cuidad de San Salvador de Jujuy.
 </h1>
 {% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <a href={% url 'listado_Blogs' %}>Volver</a>
+</p>
+{% endblock despues_del_header %}

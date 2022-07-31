@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as django_login
 
 from accounts.models import MasDatosUsuario
 from .forms import MyUserCreationForm, MyUserEditForm
-from django.contrib.auth.decorators import login_required, about_required
+from django.contrib.auth.decorators import login_required #about_required
 
 
 def login(request):
@@ -21,7 +21,7 @@ def login(request):
             
             if user is not None:
                 django_login(request, user)
-                return redirect('index')
+                return redirect('base')
             else:
                 return render(request, 'accounts/login.html', {'form': form})
         else:
@@ -37,7 +37,7 @@ def register(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('base')
         else:
             return render(request, 'accounts/register.html', {'form': form})
     
@@ -90,7 +90,3 @@ def editar_perfil(request):
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/cambio_password.html'
     success_url = '/accounts/perfil/'
-    
-@about_required
-def about(request):
-    return render(request, 'accounts/about.html')

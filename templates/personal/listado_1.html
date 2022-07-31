@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Listado</title>
+{% endblock title %}
+
 {% block texto_header %}
 <h1>
     Listado
@@ -12,7 +18,7 @@
 <p>
 
 </p>
-    {% object_list %}
+    {% comment %} {% object_list %} {% endcomment %}
 <p>
     {% if listado_1 %}
     <ul>

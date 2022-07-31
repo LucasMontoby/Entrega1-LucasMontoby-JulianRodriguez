@@ -12,11 +12,12 @@
 
 {% block despues_del_header %}
 <p>
-    <a href={% url 'index' %}>Volver</a>
+    <a href={% url 'base' %}>Volver</a>
 </p>
 <p>
-    <form action={% url 'login' %} method="post">
-        {% csrf_token %}
+    <form method="post">{% csrf_token %}
+    {% comment %} <form action={% url 'login' %} method="post">
+        {% csrf_token %} {% endcomment %}
         <table>
             {{form.as_table}}
         </table>

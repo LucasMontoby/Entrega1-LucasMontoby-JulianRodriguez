@@ -82,3 +82,7 @@ def eliminar(request, id):
 def mostrar(request, id):
     blog = Blog.objects.get(id=id)
     return render(request, 'blog/mostrar.html', {'blog': blog})
+
+def about(request):
+    blog = Blog.objects.get(id=id)
+    return render(request, 'blog/about.html', {'blog': blog})
