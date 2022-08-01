@@ -47,3 +47,4 @@ class Eliminar1(LoginRequiredMixin, DeleteView):
 
 class Mostrar1(DetailView):
     model = 'personal/mostrar_1.html'
+    

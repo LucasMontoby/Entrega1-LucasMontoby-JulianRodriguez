@@ -84,5 +84,4 @@ def mostrar(request, id):
     return render(request, 'blog/mostrar.html', {'blog': blog})
 
 def about(request):
-    blog = Blog.objects.get(id=id)
-    return render(request, 'blog/about.html', {'blog': blog})
+    return render(request, 'about.html')
