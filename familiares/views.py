@@ -13,9 +13,9 @@ class Listado(ListView):
     template_name = 'personal/listado_1.html'
     
     def get_queryset(self):
-        apodo = self.request.GET.get('apodo', '')
-        if apodo:
-            object_list = self.model.objects.filter(apodo__icontains=apodo)
+        apellido = self.request.GET.get('apellido', '')
+        if apellido:
+            object_list = self.model.objects.filter(apellido__icontains=apellido)
         else:
             object_list = self.model.objects.all()
         return object_list
@@ -29,14 +29,14 @@ class Crear1(CreateView):
     model=Personal
     template_name = 'personal/crear_1.html'
     success_url = '/familiares/personal'
-    fields = ['apodo', 'edad', 'fecha_creacion']
+    fields = ['apellido', 'edad', 'fecha_creacion']
 
 
 class Editar1(LoginRequiredMixin, UpdateView):
     model=Personal
     template_name = 'personal/editar_1.html'
     success_url = '/familiares/Personal'
-    fields = ['apodo', 'edad', 'fecha_creacion']
+    fields = ['apellido', 'edad', 'fecha_creacion']
 
 
 class Eliminar1(LoginRequiredMixin, DeleteView):

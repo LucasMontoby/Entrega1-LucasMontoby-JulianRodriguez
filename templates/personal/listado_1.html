@@ -15,14 +15,18 @@
     <a href={% url 'crear_1' %}>Crear</a>
 </p>
 
-<p>
 
+<p>
+        <form action={% url 'listado_1' %}>
+            {{form}}
+            <button>Buscar</button>
+        </form>
 </p>
-    {% comment %} {% object_list %} {% endcomment %}
+
 <p>
     {% if listado_1 %}
     <ul>
-        {% for personal in object_list %}
+        {% for personal in listado_1 %}
         <li>{{personal}} 
             <a href={% url 'mostrar_1' personal.id %}>Mostrar</a>
             <a href={% url 'editar_1' personal.id %}>Editar</a>

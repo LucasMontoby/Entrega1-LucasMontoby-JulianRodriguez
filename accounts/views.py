@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as django_login
 
 from accounts.models import MasDatosUsuario
 from .forms import MyUserCreationForm, MyUserEditForm
-from django.contrib.auth.decorators import login_required #about_required
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -80,7 +80,8 @@ def editar_perfil(request):
                 'email': user.email,
                 'first_name': user.first_name,
                 'last_name': user.last_name,
-                'avatar': mas_datos_usuario.avatar
+                'avatar': mas_datos_usuario.avatar,
+                'descrpción': user.descripcion
             }
         )
 

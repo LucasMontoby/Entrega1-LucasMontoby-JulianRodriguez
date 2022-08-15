@@ -36,7 +36,7 @@ def crear(request):
     
     form_blog = FormBlog()
     
-    return render(request, 'crear.html', {'form': form_blog})
+    return render(request, 'blog/crear.html', {'form': form_blog})
 
 
 def listado(request):
