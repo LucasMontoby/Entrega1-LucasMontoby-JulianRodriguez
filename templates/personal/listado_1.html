@@ -24,9 +24,9 @@
 </p>
 
 <p>
-    {% if listado_1 %}
+    {% if object_list %}
     <ul>
-        {% for personal in listado_1 %}
+        {% for personal in object_list %}
         <li>{{personal}} 
             <a href={% url 'mostrar_1' personal.id %}>Mostrar</a>
             <a href={% url 'editar_1' personal.id %}>Editar</a>

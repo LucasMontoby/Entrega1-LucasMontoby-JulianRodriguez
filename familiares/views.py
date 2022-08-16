@@ -3,12 +3,12 @@ from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import Busqueda
+from .forms import BusquedaPersonal
 
 from .models import Personal
 
 
-class Listado(ListView):
+class Listado1(ListView):
     model=Personal
     template_name = 'personal/listado_1.html'
     
@@ -22,7 +22,7 @@ class Listado(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["form"] = Busqueda()
+        context["form"] = BusquedaPersonal()
         return context
     
 class Crear1(CreateView):
@@ -35,7 +35,7 @@ class Crear1(CreateView):
 class Editar1(LoginRequiredMixin, UpdateView):
     model=Personal
     template_name = 'personal/editar_1.html'
-    success_url = '/familiares/Personal'
+    success_url = '/familiares/personal'
     fields = ['apellido', 'edad', 'fecha_creacion']
 
 
@@ -46,5 +46,6 @@ class Eliminar1(LoginRequiredMixin, DeleteView):
 
 
 class Mostrar1(DetailView):
-    model = 'personal/mostrar_1.html'
+    model = Personal
+    template_name='personal/mostrar_1.html'
     

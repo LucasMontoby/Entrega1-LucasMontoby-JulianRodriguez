@@ -22,8 +22,8 @@ def crear(request):
                 fecha = datetime.now() 
             
             blog = Blog(
-                nombre=data.get('nombre'),
-                edad=data.get('edad'),
+                autor=data.get('autor'),
+                imagen=data.get('imagen'),
                 fecha_creacion=fecha
             )
             blog.save()
@@ -41,10 +41,10 @@ def crear(request):
 
 def listado(request):
     
-    nombre_de_busqueda = request.GET.get('nombre')
+    autor_de_busqueda = request.GET.get('autor')
     
-    if nombre_de_busqueda:
-        listado = Blog.objects.filter(nombre__icontains=nombre_de_busqueda) 
+    if autor_de_busqueda:
+        listado = Blog.objects.filter(autor__icontains=autor_de_busqueda) 
     else:
         listado = Blog.objects.all()
     
@@ -58,8 +58,8 @@ def editar(request, id):
     if request.method == 'POST':
         form = FormBlog(request.POST)       
         if form.is_valid():
-            blog.nombre = form.cleaned_data.get('nombre')
-            blog.edad = form.cleaned_data.get('edad')
+            blog.autor = form.cleaned_data.get('autor')
+            blog.imagen = form.cleaned_data.get('imagen')
             blog.fecha_creacion = form.cleaned_data.get('fecha_creacion')
             blog.save()
 
@@ -68,7 +68,7 @@ def editar(request, id):
         else:
             return render(request, 'blog/editar.html', {'form': form, 'blog': blog})
     
-    form_blog = FormBlog(initial={'nombre': blog.nombre, 'edad': blog.edad, 'fecha_creacion': blog.fecha_creacion })
+    form_blog = FormBlog(initial={'autor': blog.autor, 'imagen': blog.imagen, 'fecha_creacion': blog.fecha_creacion })
     
     return render(request, 'blog/editar.html', {'form': form_blog, 'blog': blog})
 

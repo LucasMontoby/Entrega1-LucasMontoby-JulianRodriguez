@@ -7,4 +7,4 @@ class Personal(models.Model):
     fecha_creacion = models.DateField(null=True)
     
     def __str__(self):
-        return f'Tengo un blog personal {self.apodo}'
+        return f'Tengo un blog personal {self.apellido}'
