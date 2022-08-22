@@ -15,7 +15,7 @@
     <a href={% url 'listado_1' %}>Volver</a>
 </p>
 <p>
-    <form action={% url 'crear_1' %} method="post">
+    <form action={% url 'crear_1' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         <table>
             {{form.as_table}}
